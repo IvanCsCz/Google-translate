@@ -1,6 +1,7 @@
 import { ReactElement } from 'react'
 import style from './App.module.css'
 import InterchangeIcon from './components/InterchangeIcon'
+import LanguageSelector from './components/LanguageSelector'
 import { AUTO_LANGUAGE } from './constants'
 import { useLanguage } from './hooks/useLanguage'
 
@@ -9,11 +10,11 @@ function App (): ReactElement {
 
   return (
     <div className={style.mainWrapper}>
-      <h1>Google translate</h1>
+      <h1>Google translate2</h1>
 
       <div className={style.languageWrapper}>
         <div className={style.translateWrapper}>
-          <h2>From</h2>
+          <LanguageSelector type='from' onChange={setFormLanguage} value={fromLanguage}/>
           <p>{fromLanguage}</p>
         </div>
 
@@ -22,7 +23,7 @@ function App (): ReactElement {
         </button>
 
         <div className={style.translateWrapper}>
-          <h2>To</h2>
+          <LanguageSelector type='to' onChange={setToLanguage} value={toLanguage}/>
           <p>{toLanguage}</p>
         </div>
       </div>
