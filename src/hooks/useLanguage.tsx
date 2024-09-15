@@ -5,7 +5,7 @@ import { FromLanguage, Language, LanguageActions, LanguageState } from "../types
 const initialState: LanguageState = {
   fromLanguage: 'auto',
   toLanguage: 'en',
-  formText: '',
+  fromText: '',
   result: '',
   loading: false
 }
@@ -41,7 +41,7 @@ const reducer = (state: LanguageState, action: LanguageActions) => {
     return {
       ...state,
       loading: true,
-      formText: action.payload,
+      fromText: action.payload,
       result: ''
     }
   }
@@ -58,7 +58,7 @@ const reducer = (state: LanguageState, action: LanguageActions) => {
 }
 
 export function useLanguage (){
-  const [{fromLanguage, toLanguage, formText, result, loading}, dispatch] = useReducer(reducer, initialState)
+  const [{fromLanguage, toLanguage, fromText, result, loading}, dispatch] = useReducer(reducer, initialState)
 
   const interchangeLanguages = () => {
     dispatch({type: 'INTERCHANGE_LANGUAGES'})
@@ -72,7 +72,7 @@ export function useLanguage (){
     dispatch({type: 'SET_TO_LANGUAGE', payload })
   }
 
-  const setFormText = (payload: string) => {
+  const setFromText = (payload: string) => {
     dispatch({type: 'SET_FROM_TEXT', payload })
   }
 
@@ -81,6 +81,6 @@ export function useLanguage (){
   }
 
   return {
-    fromLanguage, toLanguage, formText, result, loading, interchangeLanguages, setFormLanguage, setToLanguage, setFormText,setResult
+    fromLanguage, toLanguage, fromText, result, loading, interchangeLanguages, setFormLanguage, setToLanguage, setFromText,setResult
   }
 }

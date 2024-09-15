@@ -11,8 +11,6 @@ const LanguageSelector = ({onChange, type, value}:Props) => {
     onChange(event.target.value as Language)
   }
 
-  console.log(value)
-
   return (
     <select onChange={handleChange} value={value}>
       {type === 'from' && <option value={AUTO_LANGUAGE}>Detected</option>}

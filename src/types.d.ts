@@ -8,7 +8,7 @@ export type FromLanguage = typeof Language | AutoLanguage
 export interface LanguageState {
   fromLanguage: FromLanguage
   toLanguage: Language
-  formText: string
+  fromText: string
   result: string
   loading: boolean
 }
